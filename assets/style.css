@@ -7,11 +7,11 @@
 }
 .navbar{
 	--bs-navbar-color:#ffe81f;
-    --bs-navbar-hover-color:#ffe81f;
-    --bs-navbar-disabled-color:#ffe81f;
-    --bs-navbar-active-color:#ffe81f;
+	--bs-navbar-hover-color:#ffe81f;
+	--bs-navbar-disabled-color:#ffe81f;
+	--bs-navbar-active-color:#ffe81f;
 	--bs-navbar-brand-color:#ffe81f;
-    --bs-navbar-brand-hover-color:#ffe81f;
+	--bs-navbar-brand-hover-color:#ffe81f;
 	--bs-navbar-toggler-border-color:#ffe81f;
 }
 .dropdown-menu{
