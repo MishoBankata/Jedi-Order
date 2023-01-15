@@ -6,14 +6,24 @@
     </head>
     <body>
         <canvas id="myCanvas" width=350 height=350></canvas>
-        
-        <br>
-        <div>
-		<button onclick="up()">Up</button>
-		<button onclick="down()">Down</button>
-		<button onclick="left()">Left</button>
-		<button onclick="right()">Right</button>
-        <div>
+		
+		<div style="display: none">
+			<button onclick="up()">Up</button>
+			<button onclick="down()">Down</button>
+			<button onclick="left()">Left</button>
+			<button onclick="right()">Right</button>
+        </div>
+		
+		<br>
+		
+		<img id="arrows" src="assets/arrows.png" usemap="#arrowsMap">
+		
+		<map name="arrowsMap">
+			<area shape="circle" coords="225,140,50" alt="Up" type="button" onclick="up()">
+			<area shape="circle" coords="225,300,50" alt="Down" type="button" onclick="down()">
+			<area shape="circle" coords="145,220,50" alt="Left" type="button" onclick="left()">
+			<area shape="circle" coords="305,220,50" alt="Right" type="button" onclick="right()">
+		</map>
         
         <script src="assets/game.js"></script>
     </body>

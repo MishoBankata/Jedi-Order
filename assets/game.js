@@ -9,13 +9,19 @@ context.strokeStyle = "yellow";
 
 let heroPosX = 0;
 let heroPosY = 0;
+
+
 let img = new Image();
 img.src = "assets/smile.png";
+img.onload = function(){
+	map();
+}
 
 
-context.drawImage(img, heroPosX, heroPosY);
 
 function map() {
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	context.drawImage(img, heroPosX, heroPosY);
 	for(let i = 0; i < canvas.height / sqY; i++) {
 		for(let j = 0; j < canvas.width / sqX; j++) {
 			context.strokeRect(sqX * j, sqY * i, sqX, sqY);
@@ -24,17 +30,12 @@ function map() {
 	}
 }
 
-map();
-
 function up() {
 	if(heroPosY == 0) {
 		map();
 		return;
 	}
-	context.fillStyle = "black";
-	context.fillRect(heroPosX, heroPosY, sqX, sqY);
 	heroPosY -= 50;
-	context.drawImage(img, heroPosX, heroPosY);
 	map();
 }
 
@@ -43,10 +44,7 @@ function down() {
 		map();
 		return;
 	}
-	context.fillStyle = "black";
-	context.fillRect(heroPosX, heroPosY, sqX, sqY);
 	heroPosY += 50;
-	context.drawImage(img, heroPosX, heroPosY);
 	map();
 }
 
@@ -55,10 +53,7 @@ function left() {
 		map();
 		return;
 	}
-	context.fillStyle = "black";
-	context.fillRect(heroPosX, heroPosY, sqX, sqY);
 	heroPosX -= 50;
-	context.drawImage(img, heroPosX, heroPosY);
 	map();
 }
 
@@ -67,9 +62,6 @@ function right() {
 		map();
 		return;
 	}
-	context.fillStyle = "black";
-	context.fillRect(heroPosX, heroPosY, sqX, sqY);
 	heroPosX += 50;
-	context.drawImage(img, heroPosX, heroPosY);
 	map();
 }
