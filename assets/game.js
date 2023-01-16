@@ -63,6 +63,27 @@ function creatureCheck(){
 //        60-79 stalagmites 20%
 //        80-99 cliffs 20%
 
+
+
+
+document.onkeydown = function(e) {
+	switch(e.key) {
+		case "w": up();
+	}
+
+	if (e.key === "w") {
+		up();
+	} else if (e.key === "a") {
+		left();
+	} else if (e.key === "s") {
+		down();
+	} else if (e.key === "d") {
+		right();
+	}
+}
+
+
+
 function map() {
 	context.clearRect(0, 0, canvas.width, canvas.height);
 	context.drawImage(img, heroPosX, heroPosY);
