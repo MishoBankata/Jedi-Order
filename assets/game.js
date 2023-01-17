@@ -88,7 +88,6 @@ document.onkeydown = function(e) {
 
 function map() {
 	context.clearRect(0, 0, canvas.width, canvas.height);
-	context.drawImage(img, heroPosX, heroPosY);
 	for(let i = 0; i < canvas.height / sqY; i++) {
 		for(let j = 0; j < canvas.width / sqX; j++) {
 			if(creatures[j][i][1] == 1) {
