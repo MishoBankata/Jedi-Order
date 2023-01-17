@@ -94,7 +94,6 @@ function map() {
 			if(creatures[j][i][1] == 1) {
 				context.fillRect(sqX * j, sqY * i, sqX, sqY);
 			}
-			context.strokeRect(sqX * j, sqY * i, sqX, sqY);
 		}
 	}
 	context.drawImage(img, heroPosX, heroPosY);
