@@ -18,36 +18,36 @@ img.onload = function(){
 }
 
 let creatures = [
-	[0, 0, 0, 0 ,0, 0, 0],
-	[0, 0, 0, 0 ,0, 0, 0],
-	[0, 0, 0, 0 ,0, 0, 0],
-	[0, 0, 0, 0 ,0, 0, 0],
-	[0, 0, 0, 0 ,0, 0, 0],
-	[0, 0, 0, 0 ,0, 0, 0],
-	[0, 0, 0, 0 ,0, 0, 0]
+	[[0, 0], [0, 0], [0, 0], [0, 0] ,[0, 0], [0, 0], [0, 0]],
+	[[0, 0], [0, 0], [0, 0], [0, 0] ,[0, 0], [0, 0], [0, 0]],
+	[[0, 0], [0, 0], [0, 0], [0, 0] ,[0, 0], [0, 0], [0, 0]],
+	[[0, 0], [0, 0], [0, 0], [0, 0] ,[0, 0], [0, 0], [0, 0]],
+	[[0, 0], [0, 0], [0, 0], [0, 0] ,[0, 0], [0, 0], [0, 0]],
+	[[0, 0], [0, 0], [0, 0], [0, 0] ,[0, 0], [0, 0], [0, 0]],
+	[[0, 0], [0, 0], [0, 0], [0, 0] ,[0, 0], [0, 0], [0, 0]]
 ];
 
 for(let i = 0; i < canvas.height / sqY; i++) {
 	for(let j = 0; j < canvas.width / sqX; j++) {
 		context.strokeRect(sqX * j, sqY * i, sqX, sqY);
-		creatures[i][j] = Math.floor(Math.random() * 100);
+		creatures[i][j][0] = Math.floor(Math.random() * 100);
 	}
 }
 
 function creatureCheck(){
 	let i = Number(heroPosX / 50);
 	let j = Number(heroPosY / 50);
-	if(creatures[i][j] <= 1) {
+	if(creatures[i][j][0] <= 1) {
 		console.log("gorgodon");
-	} else if (creatures[i][j] <= 9){
+	} else if (creatures[i][j][0] <= 9){
 		console.log("asharl panther");
-	} else if (creatures[i][j] <= 23){
+	} else if (creatures[i][j][0] <= 23){
 		console.log("razhak");
-	} else if (creatures[i][j] <= 39){
+	} else if (creatures[i][j][0] <= 39){
 		console.log("lisk");
-	} else if (creatures[i][j] <= 59){
+	} else if (creatures[i][j][0] <= 59){
 		console.log("crystal caves");
-	} else if (creatures[i][j] <= 79){
+	} else if (creatures[i][j][0] <= 79){
 		console.log("stalagmites");
 	} else console.log("cliffs");
 }
@@ -68,17 +68,19 @@ function creatureCheck(){
 
 document.onkeydown = function(e) {
 	switch(e.key) {
-		case "w": up();
-	}
-
-	if (e.key === "w") {
-		up();
-	} else if (e.key === "a") {
-		left();
-	} else if (e.key === "s") {
-		down();
-	} else if (e.key === "d") {
-		right();
+		case "w": 
+			up();
+			break;
+		case "a":
+			left();
+			break;
+		case "s":
+			down();
+			break;
+		case "d":
+			right();
+			break;
+		default: console.log("no current function of this key");
 	}
 }
 
@@ -86,6 +88,15 @@ document.onkeydown = function(e) {
 
 function map() {
 	context.clearRect(0, 0, canvas.width, canvas.height);
+	context.drawImage(img, heroPosX, heroPosY);
+	for(let i = 0; i < canvas.height / sqY; i++) {
+		for(let j = 0; j < canvas.width / sqX; j++) {
+			if(creatures[j][i][1] == 1) {
+				context.fillRect(sqX * j, sqY * i, sqX, sqY);
+			}
+			context.strokeRect(sqX * j, sqY * i, sqX, sqY);
+		}
+	}
 	context.drawImage(img, heroPosX, heroPosY);
 	for(let i = 0; i < canvas.height / sqY; i++) {
 		for(let j = 0; j < canvas.width / sqX; j++) {
@@ -99,6 +110,9 @@ function up() {
 		map();
 		return;
 	}
+	let i = Number(heroPosX / 50);
+	let j = Number(heroPosY / 50);
+	creatures[i][j][1] = 1;
 	heroPosY -= 50;
 	map();
 	creatureCheck()
@@ -109,6 +123,9 @@ function down() {
 		map();
 		return;
 	}
+	let i = Number(heroPosX / 50);
+	let j = Number(heroPosY / 50);
+	creatures[i][j][1] = 1;
 	heroPosY += 50;
 	map();
 	creatureCheck()
@@ -119,6 +136,9 @@ function left() {
 		map();
 		return;
 	}
+	let i = Number(heroPosX / 50);
+	let j = Number(heroPosY / 50);
+	creatures[i][j][1] = 1;
 	heroPosX -= 50;
 	map();
 	creatureCheck()
@@ -129,6 +149,9 @@ function right() {
 		map();
 		return;
 	}
+	let i = Number(heroPosX / 50);
+	let j = Number(heroPosY / 50);
+	creatures[i][j][1] = 1;
 	heroPosX += 50;
 	map();
 	creatureCheck()
