@@ -12,7 +12,7 @@ let heroPosY = Number(0);
 
 
 let img = new Image();
-img.src = "assets/smile.png";
+img.src = "assets/game_assets/smile.png";
 img.onload = function(){
 	map();
 }
@@ -38,18 +38,18 @@ function creatureCheck(){
 	let i = Number(heroPosX / 50);
 	let j = Number(heroPosY / 50);
 	if(creatures[i][j][0] <= 1) {
-		console.log("gorgodon");
+		document.getElementById("arrows").src = "assets/game_assets/gorgodon.png";
 	} else if (creatures[i][j][0] <= 9){
-		console.log("asharl panther");
+		document.getElementById("arrows").src = "assets/game_assets/panther.png";
 	} else if (creatures[i][j][0] <= 23){
-		console.log("razhak");
+		document.getElementById("arrows").src = "assets/game_assets/centipede.png";
 	} else if (creatures[i][j][0] <= 39){
-		console.log("lisk");
+		document.getElementById("arrows").src = "assets/game_assets/lisk.png";
 	} else if (creatures[i][j][0] <= 59){
-		console.log("crystal caves");
+		document.getElementById("arrows").src = "assets/game_assets/crystal.png";
 	} else if (creatures[i][j][0] <= 79){
-		console.log("stalagmites");
-	} else console.log("cliffs");
+		document.getElementById("arrows").src = "assets/game_assets/stalagmites.png";
+	} else document.getElementById("arrows").src = "assets/game_assets/cliffs.png";
 }
 
 //        CREATURES 40%
@@ -113,7 +113,7 @@ function up() {
 	creatures[i][j][1] = 1;
 	heroPosY -= 50;
 	map();
-	creatureCheck()
+	creatureCheck();
 }
 
 function down() {
@@ -126,7 +126,7 @@ function down() {
 	creatures[i][j][1] = 1;
 	heroPosY += 50;
 	map();
-	creatureCheck()
+	creatureCheck();
 }
 
 function left() {
@@ -139,7 +139,7 @@ function left() {
 	creatures[i][j][1] = 1;
 	heroPosX -= 50;
 	map();
-	creatureCheck()
+	creatureCheck();
 }
 
 function right() {
@@ -152,5 +152,9 @@ function right() {
 	creatures[i][j][1] = 1;
 	heroPosX += 50;
 	map();
-	creatureCheck()
+	creatureCheck();
+}
+
+function change() {
+	document.getElementById("arrows").src = "assets/planets/kamino.jpg";
 }
