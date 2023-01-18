@@ -38,18 +38,18 @@ function creatureCheck(){
 	let i = Number(heroPosX / 50);
 	let j = Number(heroPosY / 50);
 	if(creatures[i][j][0] <= 1) {
-		document.getElementById("arrows").src = "assets/game_assets/gorgodon.png";
+		document.getElementById("imgs").src = "assets/game_assets/gorgodon.png";
 	} else if (creatures[i][j][0] <= 9){
-		document.getElementById("arrows").src = "assets/game_assets/panther.png";
+		document.getElementById("imgs").src = "assets/game_assets/panther.png";
 	} else if (creatures[i][j][0] <= 23){
-		document.getElementById("arrows").src = "assets/game_assets/centipede.png";
+		document.getElementById("imgs").src = "assets/game_assets/centipede.png";
 	} else if (creatures[i][j][0] <= 39){
-		document.getElementById("arrows").src = "assets/game_assets/lisk.png";
+		document.getElementById("imgs").src = "assets/game_assets/lisk.png";
 	} else if (creatures[i][j][0] <= 59){
-		document.getElementById("arrows").src = "assets/game_assets/crystal.png";
+		document.getElementById("imgs").src = "assets/game_assets/crystal.png";
 	} else if (creatures[i][j][0] <= 79){
-		document.getElementById("arrows").src = "assets/game_assets/stalagmites.png";
-	} else document.getElementById("arrows").src = "assets/game_assets/cliffs.png";
+		document.getElementById("imgs").src = "assets/game_assets/stalagmites.png";
+	} else document.getElementById("imgs").src = "assets/game_assets/cliffs.png";
 }
 
 //        CREATURES 40%
