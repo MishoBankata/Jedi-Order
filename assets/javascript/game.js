@@ -12,10 +12,29 @@ let heroPosY = Number(0);
 
 
 let img = new Image();
-img.src = "assets/game_assets/smile.png";
+img.src = "assets/game_assets/frown.png";
 img.onload = function(){
 	map();
 }
+
+let imgGorg = new Image();
+imgGorg.src = "assets/game_assets/gorgodon.png";
+let imgPant = new Image();
+imgPant.src = "assets/game_assets/panther.png";
+let imgCent = new Image();
+imgCent.src = "assets/game_assets/centipede.png";
+let imgLisk = new Image();
+imgLisk.src = "assets/game_assets/lisk.png";
+let imgCrys = new Image();
+imgCrys.src = "assets/game_assets/crystal.png";
+let imgStlg = new Image();
+imgStlg.src = "assets/game_assets/stalagmites.png";
+let imgClif = new Image();
+imgClif.src = "assets/game_assets/cliffs.png";
+let imgCave = new Image();
+imgCave.src = "assets/game_assets/cave.png";
+let imgKybr = new Image();
+imgKybr.src = "assets/game_assets/kyber.png";
 
 let creatures = [
 	[[0, 0], [0, 0], [0, 0], [0, 0] ,[0, 0], [0, 0], [0, 0]],
@@ -29,27 +48,46 @@ let creatures = [
 
 for(let i = 0; i < canvas.height / sqY; i++) {
 	for(let j = 0; j < canvas.width / sqX; j++) {
-		context.strokeRect(sqX * j, sqY * i, sqX, sqY);
 		creatures[i][j][0] = Math.floor(Math.random() * 100);
 	}
 }
+
+
+creatures[Math.floor(Math.random() * 7)][Math.floor(Math.random() * 7)][0] = 101;
+
+creatures[0][0][0] = 100;
 
 function creatureCheck(){
 	let i = Number(heroPosX / 50);
 	let j = Number(heroPosY / 50);
 	if(creatures[i][j][0] <= 1) {
 		document.getElementById("imgs").src = "assets/game_assets/gorgodon.png";
+		creatures[i][j][1] = 1;
 	} else if (creatures[i][j][0] <= 9){
 		document.getElementById("imgs").src = "assets/game_assets/panther.png";
+		creatures[i][j][1] = 9;
 	} else if (creatures[i][j][0] <= 23){
 		document.getElementById("imgs").src = "assets/game_assets/centipede.png";
+		creatures[i][j][1] = 23;
 	} else if (creatures[i][j][0] <= 39){
 		document.getElementById("imgs").src = "assets/game_assets/lisk.png";
+		creatures[i][j][1] = 39;
 	} else if (creatures[i][j][0] <= 59){
 		document.getElementById("imgs").src = "assets/game_assets/crystal.png";
+		creatures[i][j][1] = 59;
 	} else if (creatures[i][j][0] <= 79){
 		document.getElementById("imgs").src = "assets/game_assets/stalagmites.png";
-	} else document.getElementById("imgs").src = "assets/game_assets/cliffs.png";
+		creatures[i][j][1] = 79;
+	} else if (creatures[i][j][0] <= 99){
+		document.getElementById("imgs").src = "assets/game_assets/cliffs.png";
+		creatures[i][j][1] = 99;
+	} else if (creatures[i][j][0] == 100) {
+		document.getElementById("imgs").src = "assets/game_assets/cave.png";
+		creatures[i][j][1] = 100;
+	} else {
+		document.getElementById("imgs").src = "assets/game_assets/kyber.png";
+		creatures[i][j][1] = 101;
+	}
 }
 
 //        CREATURES 40%
@@ -71,16 +109,30 @@ document.onkeydown = function(e) {
 		case "w": 
 			up();
 			break;
+		case "ArrowUp":
+			up();
+			break;
 		case "a":
+			left();
+			break;
+		case "ArrowLeft":
 			left();
 			break;
 		case "s":
 			down();
 			break;
+		case "ArrowDown":
+			console.log(e);
+			down();
+			break;
 		case "d":
 			right();
 			break;
-		default: console.log("no current function of this key");
+		case "ArrowRight":
+			right();
+			break;
+		default:
+			console.log("no current function of this key");
 	}
 }
 
@@ -88,10 +140,39 @@ document.onkeydown = function(e) {
 
 function map() {
 	context.clearRect(0, 0, canvas.width, canvas.height);
+	context.drawImage(imgCave, 0, 0, 50, 50);
 	for(let i = 0; i < canvas.height / sqY; i++) {
 		for(let j = 0; j < canvas.width / sqX; j++) {
-			if(creatures[j][i][1] == 1) {
-				context.fillRect(sqX * j, sqY * i, sqX, sqY);
+			if(creatures[j][i][1] != 0) {
+				switch(creatures[j][i][1]) {
+					case 1:
+						context.drawImage(imgGorg, sqX * j, sqY * i, 50, 50);
+						break;
+					case 9:
+						context.drawImage(imgPant, sqX * j, sqY * i, 50, 50);
+						break;
+					case 23:
+						context.drawImage(imgCent, sqX * j, sqY * i, 50, 50);
+						break;
+					case 39:
+						context.drawImage(imgLisk, sqX * j, sqY * i, 50, 50);
+						break;
+					case 59:
+						context.drawImage(imgCrys, sqX * j, sqY * i, 50, 50);
+						break;
+					case 79:
+						context.drawImage(imgStlg, sqX * j, sqY * i, 50, 50);
+						break;
+					case 99:
+						context.drawImage(imgClif, sqX * j, sqY * i, 50, 50);
+						break;
+					case 101:
+						context.drawImage(imgKybr, sqX * j, sqY * i, 50, 50);
+						img.src = "assets/game_assets/smile.png";
+						break;
+					default:
+						break;
+				}
 			}
 		}
 	}
@@ -101,6 +182,7 @@ function map() {
 			context.strokeRect(sqX * j, sqY * i, sqX, sqY);
 		}
 	}
+	
 }
 
 function up() {
@@ -110,10 +192,9 @@ function up() {
 	}
 	let i = Number(heroPosX / 50);
 	let j = Number(heroPosY / 50);
-	creatures[i][j][1] = 1;
 	heroPosY -= 50;
-	map();
 	creatureCheck();
+	map();
 }
 
 function down() {
@@ -123,10 +204,9 @@ function down() {
 	}
 	let i = Number(heroPosX / 50);
 	let j = Number(heroPosY / 50);
-	creatures[i][j][1] = 1;
 	heroPosY += 50;
-	map();
 	creatureCheck();
+	map();
 }
 
 function left() {
@@ -136,10 +216,9 @@ function left() {
 	}
 	let i = Number(heroPosX / 50);
 	let j = Number(heroPosY / 50);
-	creatures[i][j][1] = 1;
 	heroPosX -= 50;
-	map();
 	creatureCheck();
+	map();
 }
 
 function right() {
@@ -149,10 +228,9 @@ function right() {
 	}
 	let i = Number(heroPosX / 50);
 	let j = Number(heroPosY / 50);
-	creatures[i][j][1] = 1;
 	heroPosX += 50;
-	map();
 	creatureCheck();
+	map();
 }
 
 function change() {
