@@ -20,7 +20,7 @@
 			<area shape="circle" coords="225,140,50" alt="Up" type="button" onclick="up()">
 			<area shape="circle" coords="225,300,50" alt="Down" type="button" onclick="down()">
 			<area shape="circle" coords="145,220,50" alt="Left" type="button" onclick="left()">
-			<area shape="circle" coords="305,220,50" alt="Right" type="button" onclick="right()">
+			<area shape="circle" coords="305,220,50" alt="Right" type="button" onclick="displayFirstName()">
 		</map>
 		
 		
@@ -35,8 +35,19 @@
 		</div>
 		
 		<div class="row row-pad">
-			<div class="col-md-12">
+			<div class="col-md-6">
 				<img id="arrows" src="assets/game_assets/arrows.png" usemap="#arrowsMap" style="margin-left: auto; margin-right: auto; display: block;">
+			</div>
+			<div class="col-md-6">
+			
+				<div id="nameEnter" style="margin-top: 20px; margin-left: auto; margin-right: auto; text-align: center;">
+					<label for="firstName">Your first name:</label><br>
+					<input type="text" id="firstName" name="firstName"><br>
+					<label for="lastName">Your last name:</label><br>
+					<input type="text" id="lastName" name="lastName"><br><br>
+					
+					<button onclick="displayFirstName()" type="button" class="btn btn-dark">Begin your Adventure!</button>
+				</div>
 			</div>
 		</div>
 	<div>

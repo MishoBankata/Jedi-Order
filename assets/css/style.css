@@ -31,3 +31,7 @@
 .row-pad{
 	padding-bottom:50px;
 }
+.btn-dark{
+	--bs-btn-color: #ffe81f;
+	--bs-btn-hover-color: #ff0000;
+}

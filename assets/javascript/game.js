@@ -234,5 +234,10 @@ function right() {
 }
 
 function change() {
-	document.getElementById("arrows").src = "assets/planets/kamino.jpg";
+	document.getElementById("arrows").display = "none";
+}
+
+function displayFirstName() {
+	let firstName = document.getElementById("firstName").value;
+	console.log(firstName);
 }
