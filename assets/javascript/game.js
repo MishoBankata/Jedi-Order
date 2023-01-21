@@ -10,6 +10,7 @@ context.strokeStyle = "yellow";
 let heroPosX = Number(0);
 let heroPosY = Number(0);
 
+let playable = 0;
 
 let img = new Image();
 img.src = "assets/game_assets/frown.png";
@@ -52,40 +53,64 @@ for(let i = 0; i < canvas.height / sqY; i++) {
 	}
 }
 
-
 creatures[Math.floor(Math.random() * 7)][Math.floor(Math.random() * 7)][0] = 101;
 
+while(true){
+	if(creatures[0][0][0] == 101 || creatures[0][1][0] == 101 || creatures[1][0][0] == 101 || creatures[1][1][0] == 101) {
+		creatures[Math.floor(Math.random() * 7)][Math.floor(Math.random() * 7)][0] = 101;
+	} else break;
+}
+
 creatures[0][0][0] = 100;
+
+let cave = "enters a cave on Ilum";
+let gorg = "is crushed by a giant Gorgodon!";
+let pant = "is cut by a angry Asharl Panther";
+let cent = "is bitten by a ravenous Razack";
+let lisk = "is startled by a puny lisk";
+let crys = "discovers a chamber, full of crystals";
+let stlg = "discovers a chamber with with sharp stalagtites and stalagmites";
+let clif = "discovers a chamber with botomless cliffs";
+let kybr = "has found the Kyber Crystal";
 
 function creatureCheck(){
 	let i = Number(heroPosX / 50);
 	let j = Number(heroPosY / 50);
 	if(creatures[i][j][0] <= 1) {
 		document.getElementById("imgs").src = "assets/game_assets/gorgodon.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + gorg;
 		creatures[i][j][1] = 1;
 	} else if (creatures[i][j][0] <= 9){
 		document.getElementById("imgs").src = "assets/game_assets/panther.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + pant;
 		creatures[i][j][1] = 9;
 	} else if (creatures[i][j][0] <= 23){
 		document.getElementById("imgs").src = "assets/game_assets/centipede.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + cent;
 		creatures[i][j][1] = 23;
 	} else if (creatures[i][j][0] <= 39){
 		document.getElementById("imgs").src = "assets/game_assets/lisk.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + lisk;
 		creatures[i][j][1] = 39;
 	} else if (creatures[i][j][0] <= 59){
 		document.getElementById("imgs").src = "assets/game_assets/crystal.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + crys;
 		creatures[i][j][1] = 59;
 	} else if (creatures[i][j][0] <= 79){
 		document.getElementById("imgs").src = "assets/game_assets/stalagmites.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + stlg;
 		creatures[i][j][1] = 79;
 	} else if (creatures[i][j][0] <= 99){
 		document.getElementById("imgs").src = "assets/game_assets/cliffs.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + clif;
 		creatures[i][j][1] = 99;
 	} else if (creatures[i][j][0] == 100) {
 		document.getElementById("imgs").src = "assets/game_assets/cave.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + cave;
 		creatures[i][j][1] = 100;
 	} else {
 		document.getElementById("imgs").src = "assets/game_assets/kyber.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + kybr;
 		creatures[i][j][1] = 101;
 	}
 }
@@ -166,6 +191,9 @@ function map() {
 					case 99:
 						context.drawImage(imgClif, sqX * j, sqY * i, 50, 50);
 						break;
+					case 100:
+						context.drawImage(imgCave, sqX * j, sqY * i, 50, 50);
+						break;
 					case 101:
 						context.drawImage(imgKybr, sqX * j, sqY * i, 50, 50);
 						img.src = "assets/game_assets/smile.png";
@@ -186,7 +214,7 @@ function map() {
 }
 
 function up() {
-	if(heroPosY == 0) {
+	if(heroPosY == 0 || playable == 0) {
 		map();
 		return;
 	}
@@ -198,7 +226,7 @@ function up() {
 }
 
 function down() {
-	if(heroPosY == 300) {
+	if(heroPosY == 300 || playable == 0) {
 		map();
 		return;
 	}
@@ -210,7 +238,7 @@ function down() {
 }
 
 function left() {
-	if(heroPosX == 0) {
+	if(heroPosX == 0 || playable == 0) {
 		map();
 		return;
 	}
@@ -222,7 +250,7 @@ function left() {
 }
 
 function right() {
-	if(heroPosX == 300) {
+	if(heroPosX == 300 || playable == 0) {
 		map();
 		return;
 	}
@@ -237,7 +265,21 @@ function change() {
 	document.getElementById("arrows").display = "none";
 }
 
-function displayFirstName() {
-	let firstName = document.getElementById("firstName").value;
-	console.log(firstName);
+let names = [];
+
+function showText() {
+	let input = document.getElementById("namesEnter").value;
+	names = input.split(' ');
+}
+function showName() {
+	for(let i = 0; i < names.length; i++){
+		console.log(names[i]);
+	}
+}
+
+function startGame() {
+	playable = 1;
+	document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + cave;
+	document.getElementById("startInput").style.display= "none";
+	document.getElementById("gameText").style.display = "block";
 }

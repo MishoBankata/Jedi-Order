@@ -4,6 +4,7 @@
         <title>Игра</title>
         <link rel="stylesheet" href="assets/css/bootstrap.css">
         <link rel="stylesheet" href="assets/css/game.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     </head>
     <body>
 	<div class="container-fluid">
@@ -20,7 +21,7 @@
 			<area shape="circle" coords="225,140,50" alt="Up" type="button" onclick="up()">
 			<area shape="circle" coords="225,300,50" alt="Down" type="button" onclick="down()">
 			<area shape="circle" coords="145,220,50" alt="Left" type="button" onclick="left()">
-			<area shape="circle" coords="305,220,50" alt="Right" type="button" onclick="displayFirstName()">
+			<area shape="circle" coords="305,220,50" alt="Right" type="button" onclick="right()">
 		</map>
 		
 		
@@ -40,19 +41,17 @@
 			</div>
 			<div class="col-md-6">
 			
-				<div id="nameEnter" style="margin-top: 20px; margin-left: auto; margin-right: auto; text-align: center;">
-					<label for="firstName">Your first name:</label><br>
-					<input type="text" id="firstName" name="firstName"><br>
-					<label for="lastName">Your last name:</label><br>
-					<input type="text" id="lastName" name="lastName"><br><br>
+				<div id="startInput" style="margin-top: 20px; margin-left: auto; margin-right: auto; text-align: center;">
+					<label for="namesEnter">Your first and last name:</label><br>
+					<input type="text" id="namesEnter" name="namesEnter"><br><br>
 					
-					<button onclick="displayFirstName()" type="button" class="btn btn-dark">Begin your Adventure!</button>
+					<button onclick="showText(); startGame()" type="button" class="btn btn-dark">Save your name and start the game</button>
 				</div>
+				<p id="gameText"></p>
+				<button type="button" class="btn btn-dark"><a class="nav-link active" href="game-intro.html">Exit game</a></button>
 			</div>
 		</div>
 	<div>
-		
-        
         <script src="assets/javascript/game.js"></script>
     </body>
 </html>
