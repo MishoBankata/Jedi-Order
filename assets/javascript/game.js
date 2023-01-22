@@ -130,8 +130,9 @@ function creatureCheck(){
 
 
 document.onkeydown = function(e) {
-	switch(e.key) {
-		case "w": 
+	
+	killme: switch(e.key) {
+		case "w":
 			up();
 			break;
 		case "ArrowUp":
@@ -158,6 +159,7 @@ document.onkeydown = function(e) {
 			break;
 		default:
 			console.log("no current function of this key");
+			break;
 	}
 }
 
@@ -269,7 +271,14 @@ let names = [];
 
 function showText() {
 	let input = document.getElementById("namesEnter").value;
-	names = input.split(' ');
+	if(input == "") {
+		names[0] = "Luke";
+		names[1] = "Skywalker";
+	} else names = input.split(' ');
+	
+	if(names[1] == undefined) {
+		names[1] = "Skywalker";
+	}
 }
 function showName() {
 	for(let i = 0; i < names.length; i++){

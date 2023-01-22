@@ -43,6 +43,11 @@ body {
 .btn-dark{
 	--bs-btn-color: #ffe81f;
 	--bs-btn-hover-color: #ff0000;
+	border: 2px solid #ffe81f;
+}
+
+.movebtn{
+	border-radius: 50%;
 }
 
 #gameText{

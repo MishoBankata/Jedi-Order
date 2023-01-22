@@ -8,36 +8,34 @@
     </head>
     <body>
 	<div class="container-fluid">
-		<div style="display: none">
-			<button onclick="up()">Up</button>
-			<button onclick="down()">Down</button>
-			<button onclick="left()">Left</button>
-			<button onclick="right()">Right</button>
-		</div>
 		
 		<br>
-		
-		<map name="arrowsMap">
-			<area shape="circle" coords="225,140,50" alt="Up" type="button" onclick="up()">
-			<area shape="circle" coords="225,300,50" alt="Down" type="button" onclick="down()">
-			<area shape="circle" coords="145,220,50" alt="Left" type="button" onclick="left()">
-			<area shape="circle" coords="305,220,50" alt="Right" type="button" onclick="right()">
-		</map>
-		
-		
 		
 		<div class="row row-pad">
 			<div class="col-md-6">
 				<canvas id="myCanvas" width=350 height=350 style="margin-bottom: 20px; margin-left: auto; margin-right: auto; display: block;"></canvas>
 			</div>
 			<div class="col-md-6">
-				<img id="imgs" src="assets/game_assets/cave.png" style="height: 350px; margin-bottom: 20px; margin-left: auto; margin-right: auto; display: block;">
+				<img id="imgs" src="assets/game_assets/cave.png" style="height: 350px; max-width: 100%; margin-bottom: 20px; margin-left: auto; margin-right: auto; display: block;">
 			</div>
 		</div>
 		
 		<div class="row row-pad">
 			<div class="col-md-6">
-				<img id="arrows" src="assets/game_assets/arrows.png" usemap="#arrowsMap" style="margin-left: auto; margin-right: auto; display: block;">
+				<div class="row row-pad">
+					<div class="col-md-12">
+						<button class="btn btn-dark movebtn" onclick="up()" style="margin-bottom: 20px; margin-left: auto; margin-right: auto; display: block;">Move Up</button>
+					</div>
+					<div class="col-md-6">
+						<button class="btn btn-dark movebtn" onclick="left()" style="margin-left: auto; margin-right: auto; display: block;">Move Left</button>
+					</div>
+					<div class="col-md-6">
+						<button class="btn btn-dark movebtn" onclick="right()" style="margin-left: auto; margin-right: auto; display: block;">Move Right</button>
+					</div>
+					<div class="col-md-12">
+						<button class="btn btn-dark movebtn" onclick="down()" style="margin-top: 20px; margin-left: auto; margin-right: auto; display: block;">Move Down</button>
+					</div>
+				</div>
 			</div>
 			<div class="col-md-6">
 			
@@ -48,7 +46,7 @@
 					<button onclick="showText(); startGame()" type="button" class="btn btn-dark">Save your name and start the game</button>
 				</div>
 				<p id="gameText"></p>
-				<button type="button" class="btn btn-dark"><a class="nav-link active" href="game-intro.html">Exit game</a></button>
+				<button class="btn btn-dark" onclick="window.location.href='game-intro.html'">Exit game</button>
 			</div>
 		</div>
 	<div>
