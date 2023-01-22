@@ -67,10 +67,10 @@
 	<div id="gameplay" style = "display:none" class="container-fluid">
 	
 		<div class="row row-pad">
-			<div class="col-md-6">
+			<div class="col-6">
 				<canvas id="myCanvas" width=350 height=350 style="margin-bottom: 20px; margin-left: auto; margin-right: auto; display: block;"></canvas>
 			</div>
-			<div class="col-md-6">
+			<div class="col-6">
 				<img id="imgs" src="assets/game_assets/cave.png" style="height: 350px; max-width: 100%; margin-bottom: 20px; margin-left: auto; margin-right: auto; display: block;">
 			</div>
 		</div>
@@ -78,16 +78,16 @@
 		<div class="row row-pad">
 			<div class="col-md-6">
 				<div class="row row-pad">
-					<div class="col-md-12">
+					<div class="col-12">
 						<button class="btn btn-dark movebtn" onclick="up()" style="margin-bottom: 20px; margin-left: auto; margin-right: auto; display: block;">Move Up</button>
 					</div>
-					<div class="col-md-6">
+					<div class="col-6">
 						<button class="btn btn-dark movebtn" onclick="left()" style="margin-left: auto; margin-right: auto; display: block;">Move Left</button>
 					</div>
-					<div class="col-md-6">
+					<div class="col-6">
 						<button class="btn btn-dark movebtn" onclick="right()" style="margin-left: auto; margin-right: auto; display: block;">Move Right</button>
 					</div>
-					<div class="col-md-12">
+					<div class="col-12">
 						<button class="btn btn-dark movebtn" onclick="down()" style="margin-top: 20px; margin-left: auto; margin-right: auto; display: block;">Move Down</button>
 					</div>
 				</div>
@@ -101,9 +101,9 @@
 					<button onclick="showText(); startGame()" type="button" class="btn btn-dark">Save your name and start the game</button>
 				</div>
 				<p id="gameText"></p>
-				<button style="position: absolute; right:0; bottom:0;" class="btn btn-dark" onclick="location.reload()">Exit game</button>
 			</div>
 		</div>
+		<button style="position: absolute; right:0; bottom:0;" class="btn btn-dark" onclick="location.reload()">Exit game</button>
 	</div>
 	
 	<script src="assets/javascript/bootstrap.js"></script>
