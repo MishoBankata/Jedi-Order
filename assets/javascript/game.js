@@ -78,38 +78,47 @@ function creatureCheck(){
 	let j = Number(heroPosY / 50);
 	if(creatures[i][j][0] <= 1) {
 		document.getElementById("imgs").src = "assets/game_assets/gorgodon.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/gorgodon.png";
 		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + gorg;
 		creatures[i][j][1] = 1;
 	} else if (creatures[i][j][0] <= 9){
 		document.getElementById("imgs").src = "assets/game_assets/panther.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/panther.png";
 		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + pant;
 		creatures[i][j][1] = 9;
 	} else if (creatures[i][j][0] <= 23){
 		document.getElementById("imgs").src = "assets/game_assets/centipede.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/centipede.png";
 		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + cent;
 		creatures[i][j][1] = 23;
 	} else if (creatures[i][j][0] <= 39){
 		document.getElementById("imgs").src = "assets/game_assets/lisk.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/lisk.png";
 		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + lisk;
 		creatures[i][j][1] = 39;
 	} else if (creatures[i][j][0] <= 59){
 		document.getElementById("imgs").src = "assets/game_assets/crystal.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/crystal.png";
 		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + crys;
 		creatures[i][j][1] = 59;
 	} else if (creatures[i][j][0] <= 79){
 		document.getElementById("imgs").src = "assets/game_assets/stalagmites.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/stalagmites.png";
 		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + stlg;
 		creatures[i][j][1] = 79;
 	} else if (creatures[i][j][0] <= 99){
 		document.getElementById("imgs").src = "assets/game_assets/cliffs.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/cliffs.png";
 		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + clif;
 		creatures[i][j][1] = 99;
 	} else if (creatures[i][j][0] == 100) {
 		document.getElementById("imgs").src = "assets/game_assets/cave.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/cave.png";
 		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + cave;
 		creatures[i][j][1] = 100;
 	} else {
 		document.getElementById("imgs").src = "assets/game_assets/kyber.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/kyber.png";
 		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + kybr;
 		creatures[i][j][1] = 101;
 	}
@@ -291,4 +300,6 @@ function startGame() {
 	document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + cave;
 	document.getElementById("startInput").style.display= "none";
 	document.getElementById("gameText").style.display = "block";
+	document.getElementById('gameplay').style.display = 'block';
+	document.getElementById('intro').style.display = 'none'
 }
