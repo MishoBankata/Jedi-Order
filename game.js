@@ -139,8 +139,7 @@ function creatureCheck(){
 
 
 document.onkeydown = function(e) {
-	
-	killme: switch(e.key) {
+	switch(e.key) {
 		case "w":
 			up();
 			break;

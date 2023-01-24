@@ -14,6 +14,7 @@ body {
 	--bs-link-color:#ff0000;
 	--bs-link-hover-color:#cc0404;
 }
+
 .navbar{
 	--bs-navbar-color:#ffe81f;
 	--bs-navbar-hover-color:#ffe81f;
@@ -23,23 +24,28 @@ body {
 	--bs-navbar-brand-hover-color:#ffe81f;
 	--bs-navbar-toggler-border-color:#ffe81f;
 }
+
 .dropdown-menu{
 	--bs-dropdown-bg:#000000;
 	--bs-dropdown-link-color:#ffe81f;
 }
+
 #gif{
 	max-width: 100%;
 	height: auto;
 	margin:auto;
 	display:block;
 }
+
 .page-title{
 	text-align:center;
 	font-size:60px;
 }
+
 .row-pad{
 	padding-bottom:50px;
 }
+
 .btn-dark{
 	--bs-btn-color: #ffe81f;
 	--bs-btn-hover-color: #ff0000;
