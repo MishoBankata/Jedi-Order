@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="assets/css/bootstrap.css">
-        <link rel="stylesheet" href="game.css">
+        <link rel="stylesheet" href="assets/css/game.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
     </head>
     <body>
@@ -78,33 +78,52 @@
 			
 			<div class="row row-pad">
 				<div class="col-md-6">
+					<p id="gameText"></p>
+				</div>
+				<div id="movementButtons" class="col-md-6" style="display:block">
 					<div class="row row-pad">
 						<div class="col-12">
-							<button class="btn btn-dark movebtn" onclick="up()" style="margin-bottom: 20px; margin-left: auto; margin-right: auto; display: block;">Move Up</button>
+							<button id="button1" class="btn btn-dark movebtn" onclick="up()" style="margin-bottom: 20px; margin-left: auto; margin-right: auto; display: block;">Move Up</button>
 						</div>
 						<div class="col-4 col-sm-4 col-md-6">
-							<button class="btn btn-dark movebtn" onclick="left()" style="margin-left: auto; margin-right: auto; display: block;">Move Left</button>
+							<button id="button2" class="btn btn-dark movebtn" onclick="left()" style="margin-left: auto; margin-right: auto; display: block;">Move Left</button>
 						</div>
 						<div class="col-4 d-block d-sm-block d-md-none">
 							<img id="imgsSmall" class="img-fluid mx-auto d-block" src="assets/game_assets/cave.png" style="height: 50px">
 						</div>
 						<div class="col-4 col-sm-4 col-md-6">
-							<button class="btn btn-dark movebtn" onclick="right()" style="margin-left: auto; margin-right: auto; display: block;">Move Right</button>
+							<button id="button3" class="btn btn-dark movebtn" onclick="right()" style="margin-left: auto; margin-right: auto; display: block;">Move Right</button>
 						</div>
 						<div class="col-12">
-							<button class="btn btn-dark movebtn" onclick="down()" style="margin-top: 20px; margin-left: auto; margin-right: auto; display: block;">Move Down</button>
+							<button id="button4" class="btn btn-dark movebtn" onclick="down()" style="margin-top: 20px; margin-left: auto; margin-right: auto; display: block;">Move Down</button>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<p id="gameText"></p>
+				<div id="fightButtons" class="col-md-6" style="display:none">
+					<div class="row row-pad">
+						<div class="col-12">
+							<button id="button1" class="btn btn-dark movebtn" onclick="fists()" style="margin-bottom: 20px; margin-left: auto; margin-right: auto; display: block;">Fists</button>
+						</div>
+						<div class="col-4 col-sm-4 col-md-6">
+							<button id="button2" class="btn btn-dark movebtn" onclick="force()" style="margin-left: auto; margin-right: auto; display: block;">Force</button>
+						</div>
+						<div class="col-4 d-block d-sm-block d-md-none">
+							<img id="imgsSmall" class="img-fluid mx-auto d-block" src="assets/game_assets/cave.png" style="height: 50px">
+						</div>
+						<div class="col-4 col-sm-4 col-md-6">
+							<button id="button3" class="btn btn-dark movebtn" onclick="rock()" style="margin-left: auto; margin-right: auto; display: block;">Rock</button>
+						</div>
+						<div class="col-12">
+							<button id="button4" class="btn btn-dark movebtn" onclick="heal()" style="margin-top: 20px; margin-left: auto; margin-right: auto; display: block;">Heal</button>
+						</div>
+					</div>
 				</div>
 			</div>
 			<!--<button style="" class="btn btn-dark" onclick="location.reload()">Exit game</button>-->
 		</div>
 		
 		<script src="assets/javascript/bootstrap.js"></script>
-		<script src="game.js"></script>
+		<script src="assets/javascript/game.js"></script>
 	
     </body>
 </html>
