@@ -12,18 +12,6 @@ let heroPosY = Number(0);
 
 let playable = 0;
 
-let inCombat = 0;
-let heroHealth = 100;
-let monsterHealth = 0;
-let monsterType = "name";
-let monsterAttack1dmg = 0;
-let monsterAttack1name = "name";
-let monsterAttack2dmg = 0;
-let monsterAttack2name = "name";
-
-let movementButtons = document.getElementById("movementButtons");
-let fightButtons = document.getElementById("fightButtons");
-
 let img = new Image();
 img.src = "assets/game_assets/frown.png";
 img.onload = function(){
@@ -85,97 +73,53 @@ let stlg = "discovers a chamber with with sharp stalagtites and stalagmites";
 let clif = "discovers a chamber with botomless cliffs";
 let kybr = "has found the Kyber Crystal";
 
-let imgs = document.getElementById("imgs");
-let imgsSmall = document.getElementById("imgsSmall");
-let gameText = document.getElementById("gameText");
-
 function creatureCheck(){
 	let i = Number(heroPosX / 50);
 	let j = Number(heroPosY / 50);
 	if(creatures[i][j][0] <= 1) {
-		imgs.src = "assets/game_assets/gorgodon.png";
-		imgsSmall.src = "assets/game_assets/gorgodon.png";
-
-		monsterHealth = 400;
-		monsterType = "gorg";
-		monsterAttack1dmg = 100;
-		monsterAttack1name = "eat";
-		monsterAttack2dmg = 100;
-		monsterAttack2name = "crush";
-		
-		gameText.innerHTML = names[0] + " " + names[1] + " " + gorg + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
+		document.getElementById("imgs").src = "assets/game_assets/gorgodon.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/gorgodon.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + gorg;
 		creatures[i][j][1] = 1;
-		inCombat = 1;
-		playable = 0;
 	} else if (creatures[i][j][0] <= 9){
-		imgs.src = "assets/game_assets/panther.png";
-		imgsSmall.src = "assets/game_assets/panther.png";
-		
-		monsterHealth = 120;
-		monsterType = "ash";
-		monsterAttack1dmg = 50;
-		monsterAttack1name = "biteAsh";
-		monsterAttack2dmg = 40;
-		monsterAttack2name = "cut";
-		
-		gameText.innerHTML = names[0] + " " + names[1] + " " + pant + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
+		document.getElementById("imgs").src = "assets/game_assets/panther.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/panther.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + pant;
 		creatures[i][j][1] = 9;
-		inCombat = 1;
-		playable = 0;
 	} else if (creatures[i][j][0] <= 23){
-		imgs.src = "assets/game_assets/centipede.png";
-		imgsSmall.src = "assets/game_assets/centipede.png";
-		
-		monsterHealth = 80;
-		monsterType = "cent";
-		monsterAttack1dmg = 40;
-		monsterAttack1name = "biteCen";
-		monsterAttack2dmg = 30;
-		monsterAttack2name = "slam";
-		
-		gameText.innerHTML = names[0] + " " + names[1] + " " + cent + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
+		document.getElementById("imgs").src = "assets/game_assets/centipede.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/centipede.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + cent;
 		creatures[i][j][1] = 23;
-		inCombat = 1;
-		playable = 0;
 	} else if (creatures[i][j][0] <= 39){
-		imgs.src = "assets/game_assets/lisk.png";
-		imgsSmall.src = "assets/game_assets/lisk.png";
-		
-		monsterHealth = 40;
-		monsterType = "lisk";
-		monsterAttack1dmg = 20;
-		monsterAttack1name = "biteLis";
-		monsterAttack2dmg = 10;
-		monsterAttack2name = "throw";
-		
-		gameText.innerHTML = names[0] + " " + names[1] + " " + lisk + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
+		document.getElementById("imgs").src = "assets/game_assets/lisk.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/lisk.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + lisk;
 		creatures[i][j][1] = 39;
-		inCombat = 1;
-		playable = 0;
 	} else if (creatures[i][j][0] <= 59){
-		imgs.src = "assets/game_assets/crystal.png";
-		imgsSmall.src = "assets/game_assets/crystal.png";
-		gameText.innerHTML = names[0] + " " + names[1] + " " + crys;
+		document.getElementById("imgs").src = "assets/game_assets/crystal.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/crystal.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + crys;
 		creatures[i][j][1] = 59;
 	} else if (creatures[i][j][0] <= 79){
-		imgs.src = "assets/game_assets/stalagmites.png";
-		imgsSmall.src = "assets/game_assets/stalagmites.png";
-		gameText.innerHTML = names[0] + " " + names[1] + " " + stlg;
+		document.getElementById("imgs").src = "assets/game_assets/stalagmites.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/stalagmites.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + stlg;
 		creatures[i][j][1] = 79;
 	} else if (creatures[i][j][0] <= 99){
-		imgs.src = "assets/game_assets/cliffs.png";
-		imgsSmall.src = "assets/game_assets/cliffs.png";
-		gameText.innerHTML = names[0] + " " + names[1] + " " + clif;
+		document.getElementById("imgs").src = "assets/game_assets/cliffs.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/cliffs.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + clif;
 		creatures[i][j][1] = 99;
 	} else if (creatures[i][j][0] == 100) {
-		imgs.src = "assets/game_assets/cave.png";
-		imgsSmall.src = "assets/game_assets/cave.png";
-		gameText.innerHTML = names[0] + " " + names[1] + " " + cave;
+		document.getElementById("imgs").src = "assets/game_assets/cave.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/cave.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + cave;
 		creatures[i][j][1] = 100;
 	} else {
-		imgs.src = "assets/game_assets/kyber.png";
-		imgsSmall.src = "assets/game_assets/kyber.png";
-		gameText.innerHTML = names[0] + " " + names[1] + " " + kybr;
+		document.getElementById("imgs").src = "assets/game_assets/kyber.png";
+		document.getElementById("imgsSmall").src = "assets/game_assets/kyber.png";
+		document.getElementById("gameText").innerHTML = names[0] + " " + names[1] + " " + kybr;
 		creatures[i][j][1] = 101;
 	}
 }
@@ -227,123 +171,7 @@ document.onkeydown = function(e) {
 	}
 }
 
-function combat() {
-	movementButtons.style.display = "none";
-	fightButtons.style.display = "block";
-}
 
-function fists() {
-	let i = Number(heroPosX / 50);
-	let j = Number(heroPosY / 50);
-	switch(monsterType) {
-		case "gorg":
-			monsterHealth -= 5;
-			gameText.innerHTML = names[0] + " " + names[1] + " " + gorg + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
-			break;
-		case "ash":
-			monsterHealth -= 10;
-			gameText.innerHTML = names[0] + " " + names[1] + " " + pant + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
-			break;
-		case "cent":
-			monsterHealth -= 15;
-			gameText.innerHTML = names[0] + " " + names[1] + " " + cent + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
-			break;
-		case "lisk":
-			monsterHealth -= 20;
-			gameText.innerHTML = names[0] + " " + names[1] + " " + lisk + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
-			break;
-		default:
-			break;
-	}
-	if (monsterHealth <= 0) {
-		creatures[i][j][0] = 79;
-		creatures[i][j][1] = 79;
-		playable = 1;
-		inCombat = 0;
-	}
-}
-
-function force() {
-	let i = Number(heroPosX / 50);
-	let j = Number(heroPosY / 50);
-	switch(monsterType) {
-		case "gorg":
-			monsterHealth -= 5;
-			gameText.innerHTML = names[0] + " " + names[1] + " " + gorg + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
-			break;
-		case "ash":
-			monsterHealth -= 10;
-			gameText.innerHTML = names[0] + " " + names[1] + " " + pant + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
-			break;
-		case "cent":
-			monsterHealth -= 15;
-			gameText.innerHTML = names[0] + " " + names[1] + " " + cent + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
-			break;
-		case "lisk":
-			monsterHealth -= 20;
-			gameText.innerHTML = names[0] + " " + names[1] + " " + lisk + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
-			break;
-		default:
-			break;
-	}
-	if (monsterHealth <= 0) {
-		creatures[i][j][0] = 79;
-		creatures[i][j][1] = 79;
-		playable = 1;
-		inCombat = 0;
-	}
-}
-
-function rock() {
-	let i = Number(heroPosX / 50);
-	let j = Number(heroPosY / 50);
-	switch(monsterType) {
-		case "gorg":
-			monsterHealth -= 5;
-			gameText.innerHTML = names[0] + " " + names[1] + " " + gorg + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
-			break;
-		case "ash":
-			monsterHealth -= 10;
-			gameText.innerHTML = names[0] + " " + names[1] + " " + pant + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
-			break;
-		case "cent":
-			monsterHealth -= 15;
-			gameText.innerHTML = names[0] + " " + names[1] + " " + cent + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
-			break;
-		case "lisk":
-			monsterHealth -= 20;
-			gameText.innerHTML = names[0] + " " + names[1] + " " + lisk + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
-			break;
-		default:
-			break;
-	}
-	if (monsterHealth <= 0) {
-		creatures[i][j][0] = 79;
-		creatures[i][j][1] = 79;
-		playable = 1;
-		inCombat = 0;
-	}
-}
-
-function heal() {
-	heroHealth += 40;
-	switch(monsterType) {
-		case "gorg":
-			gameText.innerHTML = names[0] + " " + names[1] + " " + gorg + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
-			break;
-		case "ash":
-			gameText.innerHTML = names[0] + " " + names[1] + " " + pant + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
-			break;
-		case "cent":
-			gameText.innerHTML = names[0] + " " + names[1] + " " + cent + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
-			break;
-		case "lisk":
-			gameText.innerHTML = names[0] + " " + names[1] + " " + lisk + " The hero's health is " + heroHealth + " and the monster's health is " + monsterHealth;
-			break;
-		default:
-			break;
-	}
-}
 
 function map() {
 	context.clearRect(0, 0, canvas.width, canvas.height);
@@ -393,9 +221,6 @@ function map() {
 		}
 	}
 	
-	if(inCombat == 1) {
-		combat();
-	}
 }
 
 function up() {
@@ -403,7 +228,6 @@ function up() {
 		map();
 		return;
 	}
-	
 	let i = Number(heroPosX / 50);
 	let j = Number(heroPosY / 50);
 	heroPosY -= 50;
