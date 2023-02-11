@@ -1,0 +1,9 @@
+<div class="dropdown">
+    <button onclick="showNames()" class="dropbtn">Dropdown</button>
+    <div id="searchBtn" class="dropdown-content">
+        <input type="text" placeholder="Search for characters..." id="search" onkeyup="search()">
+        {% for object in page.objects %}
+            <a href="#">{{ object.title }}</a>
+        {% endfor %}
+    </div>
+</div>
