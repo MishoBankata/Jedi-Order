@@ -1,41 +1,18 @@
 <body>
 
     {% include navigation.html %}
-    <!--{% include search.html %}-->
+    
+    {% if page.title == "SWGM-Home" or page.title == "SWGM-Game" %}
+        {{ content }}
+    {% else %}
+        <div class="container-fluid">
 
-    <div class="container-fluid">
-
-        {% include title.html %}
-        
-        {% for object in page.objects %}
-            {% include content.html %}
-        {% endfor %}
-        
-    </div>
-    <!--<script>
-        function showNames() {
-            document.getElementById("searchBtn").classList.toggle("show");
-        }
-        function search() {
-            var input, filter, ul, li, a, i;
-            input = document.getElementById("search");
-            filter = input.value.toUpperCase();
-            div = document.getElementById("searchBtn");
-            a = div.getElementsByTagName("a");
-            for (i = 0; i < a.length; i++) {
-                txtValue = a[i].textContent || a[i].innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                a[i].style.display = "";
-                } else {
-                a[i].style.display = "none";
-                }
-            }
-        }
-        function scrollIntoImage(name) {
-            let names = [];
-            for(let i = 0; i < 1; i++) {
-                names[i][j][0] = Math.floor(Math.random() * 100);
-            }
-        }
-    </script>-->
+            {% include title.html %}
+            
+            {% for object in page.objects %}
+                {% include content.html %}
+            {% endfor %}
+            
+        </div>
+    {% endif %}
 </body>
